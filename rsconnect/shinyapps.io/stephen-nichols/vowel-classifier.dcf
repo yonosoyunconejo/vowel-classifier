@@ -5,7 +5,7 @@ account: stephen-nichols
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11626871
-bundleId: 8437706
+bundleId: 8446408
 url: https://stephen-nichols.shinyapps.io/vowel-classifier/
 version: 1
 asMultiple: FALSE

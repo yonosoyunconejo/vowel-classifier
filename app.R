@@ -1,10 +1,9 @@
 library("shiny")
 library("bslib")
 library("shinyFeedback")
-library("extrafont")
 library("tidyverse")
-library("scales")
 library("magrittr")
+library("scales")
 library("class")
 
 fontCustom <- "Noto Sans"
@@ -64,12 +63,16 @@ vow_data <- vow_long %>%
 
 vow_data %<>%
   group_by(Vowel) %>%
-  mutate(F1 = case_when(is.na(F1) ~ mean(F1, na.rm = TRUE), TRUE ~ F1)) %>%
-  mutate(F2 = case_when(is.na(F2) ~ mean(F2, na.rm = TRUE), TRUE ~ F2)) %>%
-  mutate(F3 = case_when(is.na(F3) ~ mean(F3, na.rm = TRUE), TRUE ~ F3)) %>%
+  mutate(
+    F1 = case_when(is.na(F1) ~ mean(F1, na.rm = TRUE), TRUE ~ F1),
+    F2 = case_when(is.na(F2) ~ mean(F2, na.rm = TRUE), TRUE ~ F2),
+    F3 = case_when(is.na(F3) ~ mean(F3, na.rm = TRUE), TRUE ~ F3)
+  ) %>%
   ungroup()
 
 ui <- page_fillable(
+  
+  fillable = TRUE,
   
   title = "A formant-based vowel classifier",
   
@@ -156,7 +159,7 @@ ui <- page_fillable(
                  
                  The code and data are available on [GitHub](https://github.com/yonosoyunconejo/vowel-classifier).
                  
-                 By [Stephen Nichols](https://www.stephen-nichols.me/)."),
+                 By [Stephen Nichols](https://www.stephen-nichols.me/).")
         
       )
       
